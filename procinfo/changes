@@ -1,0 +1,39 @@
+Revision history for Perl extension VMS::ProcInfo.
+
+0.01  Tue Jul  8 17:30:40 1997
+	- original version; created by h2xs 1.18
+
+0.10  Wed Jul 30 17:35:10 1997
+    - Actually started working on it.
+    - Implemented proc_info_names and get_single_info.
+    - Initial tied hash support
+
+0.20  Tue Aug 19 09:18:20 1997
+    - Got get_all_info working.
+
+0.30  Wed Aug 20 14:04:04 1997
+    - Added code to handle VMS date stuff and added LAST_LOGIN_I,
+      LAST_LOGIN_N, and LOGINTIM.
+
+1.00  Wed Aug 20 16:37:10 1997
+    - Real tests now. t/basic.t
+
+1.01  Thu Aug 21 09:40:05 1997
+    - Now returning bitmap fields as longs.
+    - Added support for quadwords.
+    - Added code to return words for enumerated values (OTHER instead of0
+      for Mode, for example)
+      
+1.02  Mon Aug 25 10:43:10 1997
+    - Renamed get_single_info to get_one_proc_info_item and renamed
+      get_all_info to get_all_proc_info_items. Longer names, but it makes
+      their function more obvious, especially when this gets sub-classed by
+      VMS::Process (some day in the far future)
+    - Renamed secret mysto private hash item __ITERLIST to
+      __PROC_INFO_ITERLIST so when this thing gets subclassed by
+      VMS::Process, its provate iterator won't collide with any other
+      classes that get subclassed.
+
+1.03 Tue Aug 16 10:32:12 1997
+    - Added decode_proc_info_bitmap function to take a bitmap and return a
+      hashref with the bitmap decoded.

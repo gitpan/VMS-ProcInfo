@@ -1,0 +1,30 @@
+README for VMS::ProcInfo
+
+Copyright (c) 1997 Dan Sugalski and Linn-Benton Community College
+
+You may distribute under the terms of the Artistic License, as distributed
+with Perl.
+
+This module lets you retrieve most of the info available via the system
+service GETJPI, or the DCL lexical F$GETJPI.
+
+perl Makefile.pl
+mms
+mms test
+
+to build and test the extension. If it tests OK, then
+
+mms install
+
+to install it. More info is in the POD documentation in the ProcInfo.PM file.
+
+VMS::ProcInfo allows Perl programs to retrieve info about individual
+processes.  The information it returns is pretty much equivalent to DCL's
+F$GETJPI function with two major differences. VMS::ProcInfo does not return
+lists of info (rightslists or privileges, though the VMS::Priv module
+allows you to see or alter privs), and will decode bitmap fields, which DCL
+doesn't do.
+
+This module can't violate VMS system security in any way that DCL can't, so
+if you can see something with F$GETJPI, you can see it with VMS::ProcInfo.
+If you can't in DCL, you can't here, either.
