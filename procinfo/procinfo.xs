@@ -104,7 +104,9 @@ struct ProcInfoID ProcInfoList[] =
   {"CPULIM", JPI$_CPULIM, 4, IS_LONGWORD},
   {"CPUTIM", JPI$_CPUTIM, 4, IS_LONGWORD},
   {"CREPRC_FLAGS", JPI$_CREPRC_FLAGS, 4, IS_BITMAP},
+#ifdef  JPI$_CURRENT_AFFINITY_MASK
   {"CURRENT_AFFINITY_MASK", JPI$_CURRENT_AFFINITY_MASK, 4, IS_LONGWORD},
+#endif
 #ifdef  JPI$_CURRENT_USERCAP_MASK
   {"CURRENT_USERCAP_MASK", JPI$_CURRENT_USERCAP_MASK, 4, IS_BITMAP},
 #endif
@@ -164,8 +166,12 @@ struct ProcInfoID ProcInfoList[] =
   {"PAGEFLTS", JPI$_PAGEFLTS, 4, IS_LONGWORD},
   {"PAGFILCNT", JPI$_PAGFILCNT, 4, IS_LONGWORD},
   {"PAGFILLOC", JPI$_PAGFILLOC, 4, IS_LONGWORD},
+#ifdef JPI$_PERMANENT_AFFINITY_MASK
   {"PERMANENT_AFFINITY_MASK", JPI$_PERMANENT_AFFINITY_MASK, 4, IS_LONGWORD},
+#endif
+#ifdef JPI$_PERMANENT_USERCAP_MASK
   {"PERMANENT_USERCAP_MASK", JPI$_PERMANENT_USERCAP_MASK, 4, IS_BITMAP},
+#endif
   {"PGFLQUOTA", JPI$_PGFLQUOTA, 4, IS_LONGWORD},
   {"PHDFLAGS", JPI$_PHDFLAGS, 4, IS_BITMAP},
   {"PID", JPI$_PID, 4, IS_LONGWORD},
@@ -681,7 +687,9 @@ decode_proc_info_bitmap(InfoName, BitmapValue)
      bit_test(AllPurposeHV, UAI$M_DISREPORT, "DISREPORT", BitmapValue);
      bit_test(AllPurposeHV, UAI$M_GENPWD, "GENPWD", BitmapValue);
      bit_test(AllPurposeHV, UAI$M_LOCKPWD, "LOCKPWD", BitmapValue);
+#ifdef UAI$M_MIGRATE_PWD
      bit_test(AllPurposeHV, UAI$M_MIGRATEPWD, "MIGRATEPWD", BitmapValue);
+#endif
      bit_test(AllPurposeHV, UAI$M_NOMAIL, "NOMAIL", BitmapValue);
      bit_test(AllPurposeHV, UAI$M_PWD_EXPIRED, "PWD_EXPIRED", BitmapValue);
      bit_test(AllPurposeHV, UAI$M_PWD2_EXPIRED, "PWD2_EXPIRED", BitmapValue);

@@ -13,7 +13,7 @@ require DynaLoader;
 @EXPORT = qw();
 @EXPORT_OK = qw(&proc_info_names        &get_all_proc_info_items
                 &get_one_proc_info_item &decode_proc_info_bitmap);
-$VERSION = '1.03';
+$VERSION = '1.04';
 
 bootstrap VMS::ProcInfo $VERSION;
 

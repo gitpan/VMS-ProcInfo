@@ -37,3 +37,6 @@ Revision history for Perl extension VMS::ProcInfo.
 1.03 Tue Aug 16 10:32:12 1997
     - Added decode_proc_info_bitmap function to take a bitmap and return a
       hashref with the bitmap decoded.
+
+1.04 Mon Sep 29 11:29:00 1997
+    - Made a few changes to get it to compile on an OpenVMS Alpha 6.2 cluster
